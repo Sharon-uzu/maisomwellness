@@ -122,7 +122,7 @@ const Dashboard = ({
                       <BsFileBarGraphFill className='c-i' />
                     </span>
                     <h2>₦{NumberWithCommas(amountSold)}</h2>
-                    <h6>Total Sales</h6>
+                    <h6>Total Sales.</h6>
                     {/* <p>+8% from yesterday</p> */}
                   </div>
 
