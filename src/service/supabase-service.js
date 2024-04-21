@@ -85,6 +85,6 @@ export function getAllMarketers() {
     return Supabase
         .from("admins")
         .select("*")
-        .eq('type', "PRODUCT-REP")
+        .eq('type', "Marketer")
 }
  
