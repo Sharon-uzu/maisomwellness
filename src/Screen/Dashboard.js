@@ -106,11 +106,11 @@ const Dashboard = ({
                   <p>Sales Summary</p>
                 </div>
 
-                <span className='export'>
+                {/* <span className='export'>
                   <PiExportBold className='e-i' />
                   export
 
-                </span>
+                </span> */}
 
               </div>
 
