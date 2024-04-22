@@ -311,7 +311,9 @@ const Invoice = ({
                                 productCostPlusVat,
                                 taxAmount,
                                 discount_amount,
-                                amountToPay
+                                amountToPay,
+                                paymentMetheod,
+                                complimentaryMethod
                             })
                             handleClose()
                             // disp_view_invoice(null)
@@ -370,12 +372,12 @@ const Invoice = ({
                 }
 
                 <tr>
-                    <td>Tax (VAT)</td>
-                    <td>(+) ₦{discount > 0 ? NumberWithCommas(taxWithDiscount) : NumberWithCommas(vat)}</td>
+                    <td  style={{color: "#000" }}>Tax (VAT)</td>
+                    <td  style={{color: "#000" }}>(+) ₦{discount > 0 ? NumberWithCommas(taxWithDiscount) : NumberWithCommas(vat)}</td>
                 </tr>
 
                 <tr style={{ marginTop: 10, alignItems: "center" }} >
-                    <td>Total</td>
+                    <td  style={{color: "#000" }}>Total</td>
                     <td className='total' style={{ fontSize: 19, fontWeight: 900, color: "#000" }} > ₦{NumberWithCommas(discount > 0 ? grossTotal : costOfProducts + vat)}</td>
                 </tr>
                 <br /><br />
@@ -513,12 +515,12 @@ const Invoice = ({
                                     // backgroundColor: "#fff"
                                 }}
                                 className='invoice-s'  >
-                                <section className='invoice' style={{ padding: 20, backgroundColor: "#fff" }} id="pdf-content">
+                                <section className='invoice' style={{ padding: 20, backgroundColor: "#fff", width:"270px", }} id="pdf-content">
 
                                     <div className="in-c" style={{ flexDirection: "column", alignItems: "center" }} >
                                         <img src={logo} alt="" style={{ width: 170, height: 70 }} />
-                                        <div className="in-l">
-                                            <h3 style={{ fontSize: 23 }} >Maison Wellness place</h3>
+                                        <div className="in-l" style={{textAlign:"center"}} >
+                                            <h3 style={{ fontSize: 23, color:"#000" }} >Maison Wellness place</h3>
                                         </div>
 
                                         <div className="in-r">
@@ -563,31 +565,36 @@ const Invoice = ({
                                                 fontSize: 11,
                                                 fontWeight: 500,
                                                 // backgroundColor: "red",
-                                                width: "16%"
+                                                width: "16%",
+                                                 color:"#000" 
                                             }}>S/N</th>
                                             <th style={{
                                                 fontSize: 11,
                                                 fontWeight: 500,
                                                 // backgroundColor: "#fff",
-                                                width: "90%"
+                                                width: "90%",
+                                                 color:"#000" 
                                             }}>PRODUCT</th>
                                             <th style={{
                                                 fontSize: 11,
                                                 fontWeight: 500,
                                                 // backgroundColor: "#000",
-                                                width: "30%"
+                                                width: "30%",
+                                                 color:"#000" 
                                             }}>PRICE</th>
                                             <th style={{
                                                 fontSize: 11,
                                                 fontWeight: 500,
                                                 // backgroundColor: "red",
-                                                width: "30%"
+                                                width: "30%",
+                                                 color:"#000" 
                                             }}>QTY.</th>
                                             <th style={{
                                                 fontSize: 11,
                                                 fontWeight: 500,
                                                 // backgroundColor: "#000",
-                                                width: "30%"
+                                                width: "30%",
+                                                 color:"#000" 
                                             }}>SUBTOTAL</th>
                                         </tr>
                                         {
@@ -597,7 +604,8 @@ const Invoice = ({
                                                         fontSize: 11,
                                                         fontWeight: 500,
                                                         // backgroundColor: "red",
-                                                        width: "16%"
+                                                        width: "16%",
+                                                        color:"#000" 
                                                     }}>{index + 1}</td>
                                                     <td style={{
                                                         fontSize: 11,
@@ -612,21 +620,24 @@ const Invoice = ({
                                                         fontWeight: 500,
                                                         // backgroundColor: "red",
                                                         width: "30%",
-                                                        textAlign: "center"
+                                                        textAlign: "center",
+                                                        color:"#000" 
                                                     }}> {NumberWithCommas(`₦${items.metaData.price}`)} </td>
                                                     <td style={{
                                                         fontSize: 11,
                                                         fontWeight: 500,
                                                         // backgroundColor: "red",
                                                         width: "30%",
-                                                        textAlign: "center"
+                                                        textAlign: "center",
+                                                        color:"#000" 
                                                     }}>{items.qty}</td>
                                                     <td style={{
                                                         fontSize: 11,
                                                         fontWeight: 500,
                                                         // backgroundColor: "red",
                                                         width: "30%",
-                                                        textAlign: "center"
+                                                        textAlign: "center",
+                                                        color:"#000" 
                                                     }}> {NumberWithCommas(`₦${items.metaData.price * items.qty}`)} </td>
                                                 </tr>
                                             })

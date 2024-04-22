@@ -17,7 +17,7 @@ export function fetchAllProducts() {
 }
 
 export function SaveInvoiceModel({
-    product, salesRep, amount, vat, invoiceID, generated_by
+    product, salesRep, amount, vat, invoiceID, generated_by, branch
 }) {
     return Supabase
         .from("invoices")
@@ -26,10 +26,18 @@ export function SaveInvoiceModel({
             salesRep,
             amount,
             vat,
-            invoiceID,generated_by
+            invoiceID,generated_by,
+            branch
         }])
         .select()
 }
+
+export function fetchAllInvoicesAdmin() {
+    return Supabase
+        .from("invoices")
+        .select("*") 
+}
+
 
 export function fetchAllInvoices() {
     return Supabase
@@ -37,6 +45,7 @@ export function fetchAllInvoices() {
         .select("*")
         .eq('deleted', false)
 }
+
 
 export function fetchAllInvoicesBySalesRep(user) {
     return Supabase

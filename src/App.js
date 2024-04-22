@@ -10,6 +10,9 @@ import store from './redux/store';
 import { Provider } from 'react-redux';
 import ProductSales from './Screen/product-sales';
 
+// admin
+import Dashboardadmin from "./Screen/admin/dashboard"
+
 function App() {
   return (
     <div className="App">
@@ -24,6 +27,15 @@ function App() {
             <Route path='/sales' element={<Sales />} />
             <Route path='/product-sales' element={<ProductSales />} />
             <Route path='/invoice' element={<Invoice />} />
+
+
+            {/* Admin */}
+            <Route path='/admin-dashboard' element={<Dashboardadmin />} />
+            <Route path='/admin-salse-management' element={<Invoice />} />
+            <Route path='/admin-staff-management' element={<Invoice />} />
+            <Route path='/admin-product-management' element={<Invoice />} />
+
+
           </Routes>
         </PersistGate>
       </Provider>

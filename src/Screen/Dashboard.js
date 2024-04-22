@@ -15,6 +15,7 @@ import { Invoice_Product, Saved_invoices, View_invoice } from '../redux/state/ac
 import { NumberWithCommas, formatDate } from '../utils';
 import { FaArrowAltCircleRight } from 'react-icons/fa';
 import { useNavigate } from 'react-router';
+import AdminSidebar from '../Components/admin-sidebar';
 
 
 
@@ -29,7 +30,7 @@ const Dashboard = ({
   const [amount_Array, setamount_Array] = React.useState([])
   const navigate = useNavigate();
 
-  const amountSold = SavedInvoices && SavedInvoices.length > 0 ? SavedInvoices.filter(e=> e.paid == true).reduce((acc, item) => acc + parseInt(item.amount), 0) : 0;
+  const amountSold = SavedInvoices && SavedInvoices.length > 0 ? SavedInvoices.filter(e => e.paid == true).reduce((acc, item) => acc + parseInt(item.amount), 0) : 0;
 
 
 
@@ -91,7 +92,9 @@ const Dashboard = ({
 
       <section className='main-dash'>
 
-        <Sidebar />
+        {
+          User.type == "Admin" ? <AdminSidebar /> : <Sidebar />
+        }
 
         <div className='main'>
           <DashHeader User={User} />

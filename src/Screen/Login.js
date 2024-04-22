@@ -35,13 +35,22 @@ const Login = ({
                         Notify(response.error.message, "error")
                         setLoading(false)
                     } else {
+                        if (response.data.user.user_metadata.type == "Payteller") {
+                            setLoading(false)
+                            return alert("You do not have access to this platform yet. Platform only open to product and service rep.")
+                        }
                         // console.log(response)
+
                         disp_user({
                             ...response.data.session,
                             ...response.data.user.user_metadata
                         })
-                        navigate("/dashboard")
-                        // console.log("Nothing======",response)
+                        if (response.data.user.user_metadata.type == "Admin") {
+                            navigate("/admin-dashboard")
+                        }else{
+                            navigate("/dashboard")
+                        }
+                        // console.log(response.data.user.user_metadata)
 
                         setLoading(false)
                     }
@@ -65,7 +74,7 @@ const Login = ({
 
     return (
         <div className='sign-form'>
-  <ToastContainer />
+            <ToastContainer />
             <div className="sign">
                 <div className="sign-l">
                     <img src={circle} alt="" />
@@ -174,4 +183,3 @@ const mapDispatchToProps = (dispatch, encoded) => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
 
- 

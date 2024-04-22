@@ -328,7 +328,8 @@ const Sales = ({
                                                                         amount: sum,
                                                                         vat: parseInt(sum * 0.7 / 100),
                                                                         invoiceID: new Date().getTime(),
-                                                                        generated_by:User.name
+                                                                        generated_by:User.name,
+                                                                        branch:User.branch
                                                                     })
                                                                         .then(response => {
                                                                             if (response.error) {
