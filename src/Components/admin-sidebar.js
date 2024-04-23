@@ -87,7 +87,7 @@ const AdminSidebar = () => {
         </NavLink>
 
 
-        <NavLink to='/sales' className='link' activeclassName='active' onClick={salesOpen}>
+        <NavLink to='/admin-salse-management' className='link' activeclassName='active' onClick={salesOpen}>
 
           <div>
 
@@ -100,7 +100,7 @@ const AdminSidebar = () => {
 
         </NavLink>
 
-        <NavLink to='/dashboard' className='link' activeclassName='active'>
+        <NavLink to='/admin-staff-management' className='link' activeclassName='active'>
 
           <div>
 
@@ -112,7 +112,7 @@ const AdminSidebar = () => {
         </NavLink>
 
 
-        <NavLink to='/dashboard' className='link' activeclassName='active'>
+        <NavLink to='/admin-product-management' className='link' activeclassName='active'>
 
           <div>
 

@@ -12,6 +12,9 @@ import ProductSales from './Screen/product-sales';
 
 // admin
 import Dashboardadmin from "./Screen/admin/dashboard"
+import SalesMgt from './Screen/admin/sales-mgt';
+import StaffMgt from './Screen/admin/staff-mgt';
+import ProductMgt from './Screen/admin/product-mgt';
 
 function App() {
   return (
@@ -31,9 +34,9 @@ function App() {
 
             {/* Admin */}
             <Route path='/admin-dashboard' element={<Dashboardadmin />} />
-            <Route path='/admin-salse-management' element={<Invoice />} />
-            <Route path='/admin-staff-management' element={<Invoice />} />
-            <Route path='/admin-product-management' element={<Invoice />} />
+            <Route path='/admin-salse-management' element={<SalesMgt />} />
+            <Route path='/admin-staff-management' element={<StaffMgt />} />
+            <Route path='/admin-product-management' element={<ProductMgt />} />
 
 
           </Routes>

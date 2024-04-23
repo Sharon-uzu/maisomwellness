@@ -26,18 +26,25 @@ export function SaveInvoiceModel({
             salesRep,
             amount,
             vat,
-            invoiceID,generated_by,
+            invoiceID, generated_by,
             branch
         }])
         .select()
 }
 
+export function fetchStaffsModel() {
+    return Supabase
+        .from("admins")
+        .select("*")
+        .neq("type", "Admin")
+}
+
+
 export function fetchAllInvoicesAdmin() {
     return Supabase
         .from("invoices")
-        .select("*") 
+        .select("*")
 }
-
 
 export function fetchAllInvoices() {
     return Supabase
@@ -65,18 +72,18 @@ export function fetchSingleInvoices(id) {
         .eq('deleted', false)
 }
 
-export function updateInvoiceStatus(id,marketerid,customerphone,data) {
+export function updateInvoiceStatus(id, marketerid, customerphone, data) {
     console.log(id)
     return Supabase
         .from('invoices')
         .update({
             paid: true,
-            marketerid:marketerid,
-            customerphone:customerphone,
-            payData:data
+            marketerid: marketerid,
+            customerphone: customerphone,
+            payData: data
         })
         .eq('invoiceID', id)
-        // .select()
+    // .select()
 }
 
 export function deleteInvoice(id, user) {
@@ -84,8 +91,15 @@ export function deleteInvoice(id, user) {
         .from("invoices")
         .update({
             who_deleted: user,
-            deleted:true
+            deleted: true
         })
+        .eq('invoiceID', id)
+}
+
+export function AdminDeleteInvoice(id) {
+    return Supabase
+        .from("invoices")
+        .delete()
         .eq('invoiceID', id)
 }
 
@@ -96,4 +110,3 @@ export function getAllMarketers() {
         .select("*")
         .eq('type', "Marketer")
 }
- 

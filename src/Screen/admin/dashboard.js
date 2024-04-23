@@ -5,15 +5,15 @@ import { PiExportBold } from "react-icons/pi";
 import { BsFileBarGraphFill } from "react-icons/bs";
 import { BiSolidReceipt } from "react-icons/bi";
 import { IoIosPricetags } from "react-icons/io";
-import { FaUserPlus } from "react-icons/fa6";
+import { FaDeleteLeft, FaUserPlus } from "react-icons/fa6";
 import Chart from 'react-apexcharts';
 import { IoFilterOutline } from "react-icons/io5";
 import { Backdrop, Box, CircularProgress, Divider, Fade, Modal, colors } from '@mui/material';
 import { connect } from 'react-redux';
-import { fetchAllInvoicesAdmin, fetchAllInvoicesBySalesRep } from '../../service/supabase-service';
+import { AdminDeleteInvoice, deleteInvoice, fetchAllInvoicesAdmin, fetchAllInvoicesBySalesRep } from '../../service/supabase-service';
 import { Invoice_Product, Saved_invoices, View_invoice } from '../../redux/state/action';
-import { NumberWithCommas, formatDate } from '../../utils';
-import { FaArrowAltCircleRight } from 'react-icons/fa';
+import { Notify, NumberWithCommas, formatDate } from '../../utils';
+import { FaArrowAltCircleRight, FaPrint, FaTimes } from 'react-icons/fa';
 import { useNavigate } from 'react-router';
 import AdminSidebar from '../../Components/admin-sidebar';
 
@@ -384,7 +384,7 @@ const Dashboard = ({
                   marginBottom: 6,
                 }}>
                   <b style={{ color: "#000", fontSize: 14 }} >Date:</b>
-                  {/* <p style={{ color: "#000", fontSize: 13 }} >{getFormattedDate()}</p> */}
+                  <p style={{ color: "#000", fontSize: 13 }} >{formatDate(InvoiceProducts.created_at)}</p>
                 </div>
                 <div style={{
                   display: "flex",
@@ -395,6 +395,17 @@ const Dashboard = ({
                   <b style={{ color: "#000", fontSize: 14 }} >Sales Person:</b>
                   <p style={{ color: "#000", fontSize: 13 }} >{User.name}</p>
                 </div>
+
+                <div style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  marginBottom: 6,
+                }}>
+                  <b style={{ color: "#000", fontSize: 14 }} >Branch</b>
+                  <p style={{ color: "#000", fontSize: 13 }} >{InvoiceProducts.branch}</p>
+                </div>
+
 
                 <table className='table1' style={{ marginTop: 30 }} >
                   <tr className='tr1'>
@@ -482,8 +493,57 @@ const Dashboard = ({
 
                 </table>
 
+                <Divider style={{ marginTop: 20 }} />
+
                 {InvoiceProducts.paid && <>
 
+                  <div style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    // justifyContent: "space-between",
+                    marginTop: 20,
+                    marginBottom: 6,
+                  }}>
+                    <b style={{ color: "#000", fontSize: 10 }} >Cost of product</b>
+                    <p style={{ color: "#000", fontSize: 10, marginLeft: 10 }} > ₦{NumberWithCommas(InvoiceProducts.payData.productCost)}</p>
+                  </div>
+                  {InvoiceProducts.payData.discount_amount &&
+                    <div style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      // justifyContent: "space-between",
+                      marginTop: 20,
+                      marginBottom: 6,
+                    }}>
+                      <b style={{ color: "#000", fontSize: 10 }} >Discount</b>
+                      <p style={{ color: "#000", fontSize: 10, marginLeft: 10 }} > ₦{NumberWithCommas(InvoiceProducts.payData.discount_amount)}</p>
+                    </div>
+                  }
+
+                  <div style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    // justifyContent: "space-between",
+                    marginTop: 20,
+                    marginBottom: 6,
+                  }}>
+                    <b style={{ color: "#000", fontSize: 10 }} >VAT</b>
+                    <p style={{ color: "#000", fontSize: 10, marginLeft: 10 }} >₦{NumberWithCommas(InvoiceProducts.payData.taxAmount)}</p>
+                  </div>
+
+                  <div style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    // justifyContent: "space-between",
+                    marginTop: 20,
+                    marginBottom: 6,
+                  }}>
+                    <b style={{ color: "#000", fontSize: 10 }} >Total</b>
+                    <p style={{ color: "#000", fontSize: 10, marginLeft: 10 }} >₦{NumberWithCommas(InvoiceProducts.payData.productCostPlusVat)}</p>
+                  </div>
+
+
+                  <Divider style={{ marginTop: 20 }} />
 
                   <div style={{
                     display: "flex",
@@ -501,10 +561,12 @@ const Dashboard = ({
                     marginTop: 20,
                     marginBottom: 6,
                   }}>
-                    <b style={{ color: "#000", fontSize: 10 }} >{"paymentMetheod"}: </b>
+                    <b style={{ color: "#000", fontSize: 10 }} >{InvoiceProducts.payData.paymentMetheod}: </b>
                     <p style={{ color: "#000", fontSize: 10, marginLeft: 10 }} > ₦{NumberWithCommas(InvoiceProducts.payData.amountToPay)}</p>
                   </div>
-                  {"complimentaryMethod" != "SELECT" && <>
+
+
+                  {InvoiceProducts.payData.complimentaryMethod != "SELECT" && <>
                     <div style={{
                       display: "flex",
                       flexDirection: "row",
@@ -512,10 +574,12 @@ const Dashboard = ({
                       marginTop: 20,
                       marginBottom: 6,
                     }}>
-                      <b style={{ color: "#000", fontSize: 10 }} >{"complimentaryMethod"}: </b>
+                      <b style={{ color: "#000", fontSize: 10 }} >{InvoiceProducts.payData.complimentaryMethod}: </b>
                       <p style={{ color: "#000", fontSize: 10, marginLeft: 10 }} >₦{NumberWithCommas(InvoiceProducts.payData.productCostPlusVat - InvoiceProducts.payData.amountToPay)}</p>
                     </div>
                   </>}
+
+
 
                   {InvoiceProducts.customerphone && <>
                     <div style={{
@@ -570,8 +634,96 @@ const Dashboard = ({
               </section>
 
             </div>
+            <div style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginTop: 20,
+              backgroundColor: "#fff",
+              width: "100%", height: 70,
+              padding: 10
+            }}>
 
-            <Divider style={{ marginTop: 20 }} />
+              <div style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+              }} >
+
+                <p
+                  onClick={() => {
+                    handleClose()
+                  }}
+                  style={{
+                    backgroundColor: '#fff',
+                    color: "#FA5A7D",
+                    padding: 5,
+                    paddingRight: 10,
+                    paddingLeft: 10,
+                    // marginLeft: 10,
+                    borderRadius: 6,
+                    cursor: "pointer",
+                    fontSize: 13,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontWeight: 500
+                  }}
+                >
+                  Close   <FaTimes style={{ marginLeft: 2 }} />
+                </p>
+
+
+                <p
+                  onClick={() => {
+                    handleClose()
+                    setloading(true)
+                    AdminDeleteInvoice(InvoiceProducts.invoiceID)
+                      .then(responseX => {
+                        fetchAllInvoicesAdmin()
+                          .then(response => {
+                            disp_savedInvoice(response.data)
+                            Notify("Quote deleted successfully")
+                            setTimeout(() => {
+                              setloading(false)
+                              disp_view_invoice(null)
+                            }, 2000);
+
+                          })
+                          .catch(error => {
+                            setloading(false)
+                          })
+
+                      })
+                      .catch(error => {
+                        setloading(false)
+
+                      })
+                  }}
+                  style={{
+                    backgroundColor: '#fff', color: "#FA5A7D",
+                    padding: 5,
+                    paddingRight: 10,
+                    paddingLeft: 10,
+                    marginLeft: 10,
+                    borderRadius: 6,
+                    cursor: "pointer",
+                    fontSize: 13,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontWeight: 500
+                  }}
+                >
+                  Delete   <FaDeleteLeft style={{ marginLeft: 2 }} />
+                </p>
+
+
+              </div>
+            </div>
+
 
 
           </Box>
