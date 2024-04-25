@@ -807,7 +807,7 @@ const Invoice = ({
                                             Close   <FaTimes style={{ marginLeft: 2 }} />
                                         </p>
 
-                                        {!InvoiceProducts.paid &&
+                                        {!InvoiceProducts.paid && InvoiceProducts.generated_by == User.name &&
 
                                             <p
                                                 onClick={() => {

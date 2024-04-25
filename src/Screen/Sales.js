@@ -352,11 +352,8 @@ const Sales = ({
                                                                         })
                                                                         .catch(error => {
                                                                             setloading(false)
-                                                                        })
-
-
-
-
+                                                                        }) 
+                                                                        
                                                                 }}
                                                                 style={{
                                                                     backgroundColor: '#000', color: "white",
