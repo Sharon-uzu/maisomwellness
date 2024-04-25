@@ -35,10 +35,10 @@ const Login = ({
                         Notify(response.error.message, "error")
                         setLoading(false)
                     } else {
-                        if (response.data.user.user_metadata.type == "Payteller") {
-                            setLoading(false)
-                            return alert("You do not have access to this platform yet. Platform only open to product and service rep.")
-                        }
+                        // if (response.data.user.user_metadata.type == "Payteller") {
+                        //     setLoading(false)
+                        //     return alert("You do not have access to this platform yet. Platform only open to product and service rep.")
+                        // }
                         // console.log(response)
 
                         disp_user({

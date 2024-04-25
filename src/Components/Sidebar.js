@@ -21,7 +21,7 @@ import { connect } from 'react-redux';
 const Sidebar = ({
   appState
 }) => {
-const User = appState.User;
+  const User = appState.User;
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const [sale, setSales] = useState(false);
@@ -50,7 +50,7 @@ const User = appState.User;
       position: "fixed",
     }} >
 
-
+      
 
       <div className='media-bar' onClick={handleClick}>
         {open1 ? (<IoCloseSharp id='close' style={{ color: '#05004E' }} />) : (<FaBars id='bar' />)}
@@ -86,29 +86,31 @@ const User = appState.User;
         </NavLink>
 
 
-        <NavLink to={User.type == "SERVICE-REP" ? "/sales":"/product-sales"}  className='link' activeclassName='active' onClick={salesOpen}>
+        {User.type == "Payteller" ? <></> :
+          <NavLink to={User.type == "SERVICE-REP" ? "/sales" : "/product-sales"} className='link' activeclassName='active' onClick={salesOpen}>
 
-          <div>
+            <div>
 
-            <SiNginxproxymanager className='icon' />
-            <h4 style={{ display: isOpen ? "none" : "block" }}>Sales Management
-              {/* < TiArrowSortedDown className='arr' /> */}
-            </h4>
-            {/* 
+              <SiNginxproxymanager className='icon' />
+              <h4 style={{ display: isOpen ? "none" : "block" }}>Sales Management
+                {/* < TiArrowSortedDown className='arr' /> */}
+              </h4>
+              {/* 
             <section>
               <p>Products</p>
               <p>Services</p>
             </section>     */}
-            {/* {
+              {/* {
             sale ? (
             ): null
           } */}
 
 
-          </div>
+            </div>
 
 
-        </NavLink>
+          </NavLink>
+        }
 
         {/* <NavLink to='/dashboard' className='link' activeclassName = 'active'>
       
@@ -226,14 +228,14 @@ const User = appState.User;
 
 const mapStateToProps = (state) => {
   return {
-      appState: state.user,
+    appState: state.user,
   };
 };
 
 
 const mapDispatchToProps = (dispatch, encoded) => {
   return {
-      // disp_savedInvoice: (payload) => dispatch(Saved_invoices(payload)), 
+    // disp_savedInvoice: (payload) => dispatch(Saved_invoices(payload)), 
   };
 };
 

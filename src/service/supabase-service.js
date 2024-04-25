@@ -62,6 +62,14 @@ export function fetchAllInvoicesBySalesRep(user) {
         .eq('deleted', false)
 }
 
+export function fetchAllInvoicesByBranch(branch) {
+    return Supabase
+        .from("invoices")
+        .select("*")
+        .eq('branch', branch)
+        .eq('deleted', false)
+}
+
 
 export function fetchSingleInvoices(id) {
     console.log("Fething ", id)

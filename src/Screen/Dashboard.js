@@ -10,7 +10,7 @@ import Chart from 'react-apexcharts';
 import { IoFilterOutline } from "react-icons/io5";
 import { CircularProgress, colors } from '@mui/material';
 import { connect } from 'react-redux';
-import { fetchAllInvoicesBySalesRep } from '../service/supabase-service';
+import { fetchAllInvoicesByBranch, fetchAllInvoicesBySalesRep } from '../service/supabase-service';
 import { Invoice_Product, Saved_invoices, View_invoice } from '../redux/state/action';
 import { NumberWithCommas, formatDate } from '../utils';
 import { FaArrowAltCircleRight } from 'react-icons/fa';
@@ -36,7 +36,7 @@ const Dashboard = ({
 
   function FetchInvoices() {
     setloading(true)
-    fetchAllInvoicesBySalesRep(User.name)
+    fetchAllInvoicesByBranch(User.branch)
       .then(response => {
         setloading(false)
         if (!response.error) {

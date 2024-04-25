@@ -8,7 +8,7 @@ import { LoadingButton } from '@mui/lab'
 import { toast, ToastContainer } from 'react-toastify';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-import { SaveInvoiceModel, deleteInvoice, fetchAllInvoices, fetchAllInvoicesBySalesRep, fetchSingleInvoices, getAllMarketers, updateInvoiceStatus } from '../service/supabase-service'
+import { SaveInvoiceModel, deleteInvoice, fetchAllInvoices, fetchAllInvoicesByBranch, fetchAllInvoicesBySalesRep, fetchSingleInvoices, getAllMarketers, updateInvoiceStatus } from '../service/supabase-service'
 import { Backdrop, Box, CircularProgress, Divider, Fade, Modal, Typography } from '@mui/material'
 import { Invoice_Product, Saved_invoices, View_invoice } from '../redux/state/action'
 import { formatDate } from '@canvasjs/charts'
@@ -202,7 +202,7 @@ const Invoice = ({
     }
 
     function FetchInvoices() {
-        fetchAllInvoicesBySalesRep(User.name)
+        fetchAllInvoicesByBranch(User.branch) 
             .then(response => {
                 setloading(false)
                 disp_savedInvoice(response.data)
@@ -227,8 +227,8 @@ const Invoice = ({
     let costOfProducts = InvoiceAmount
     let discountAmount = ((costOfProducts) * parseInt(discount)) / 100
     let taxWithDiscount = ((InvoiceAmount) - (discountAmount)) * 0.075
-    let grossTotal = ((costOfProducts) - (discountAmount)) + (taxWithDiscount)   
-    
+    let grossTotal = ((costOfProducts) - (discountAmount)) + (taxWithDiscount)
+
 
     function Paymentbutton() {
         return <>
@@ -344,6 +344,38 @@ const Invoice = ({
     }
 
 
+    function AmountToPay() {
+        let costOfProducts = InvoiceAmount
+        let discountAmount = ((costOfProducts) * parseInt(discount)) / 100
+        let taxWithDiscount = ((InvoiceAmount) - (discountAmount)) * 0.075
+        let taxWithoutDiscount = (InvoiceAmount) * 0.075
+        let grossTotal = ((costOfProducts) - (discountAmount)) + (taxWithDiscount)
+        return <>
+            <p
+                style={{
+                    color: "#000",
+                    fontSize: 13,
+                    fontWeight: 500,
+                    marginRight: 20
+                }}
+            >
+                {complimentaryMethod}
+            </p>
+
+            <p
+                style={{
+                    color: "#000",
+                    fontSize: 15,
+                    fontWeight: 500,
+                    marginRight: 20
+                }}
+            >
+                ₦{NumberWithCommas(discount ? grossTotal - amountToPay : InvoiceAmount - taxWithoutDiscount)}
+                {/* ₦{NumberWithCommas(taxWithDiscount)} */}
+            </p>
+        </>
+    }
+
     function PaymentInvoiceDispaly() {
         let costOfProducts = InvoiceAmount
         let discountAmount = ((costOfProducts) * parseInt(discount)) / 100
@@ -372,12 +404,12 @@ const Invoice = ({
                 }
 
                 <tr>
-                    <td  style={{color: "#000" }}>Tax (VAT)</td>
-                    <td  style={{color: "#000" }}>(+) ₦{discount > 0 ? NumberWithCommas(taxWithDiscount) : NumberWithCommas(vat)}</td>
+                    <td style={{ color: "#000" }}>Tax (VAT)</td>
+                    <td style={{ color: "#000" }}>(+) ₦{discount > 0 ? NumberWithCommas(taxWithDiscount) : NumberWithCommas(vat)}</td>
                 </tr>
 
                 <tr style={{ marginTop: 10, alignItems: "center" }} >
-                    <td  style={{color: "#000" }}>Total</td>
+                    <td style={{ color: "#000" }}>Total</td>
                     <td className='total' style={{ fontSize: 19, fontWeight: 900, color: "#000" }} > ₦{NumberWithCommas(discount > 0 ? grossTotal : costOfProducts + vat)}</td>
                 </tr>
                 <br /><br />
@@ -419,7 +451,7 @@ const Invoice = ({
                         marginBottom: 6,
                     }}>
                         <b style={{ color: "#000", fontSize: 10 }} >{complimentaryMethod}: </b>
-                        <p style={{ color: "#000", fontSize: 10, marginLeft: 10 }} >₦{NumberWithCommas(InvoiceProducts.payData.productCostPlusVat- amountToPay)}</p>
+                        <p style={{ color: "#000", fontSize: 10, marginLeft: 10 }} >₦{NumberWithCommas(InvoiceProducts.payData.productCostPlusVat - amountToPay)}</p>
                     </div>
                 </>}
 
@@ -515,12 +547,12 @@ const Invoice = ({
                                     // backgroundColor: "#fff"
                                 }}
                                 className='invoice-s'  >
-                                <section className='invoice' style={{ padding: 20, backgroundColor: "#fff", width:"270px", }} id="pdf-content">
+                                <section className='invoice' style={{ padding: 20, backgroundColor: "#fff", width: "270px", }} id="pdf-content">
 
                                     <div className="in-c" style={{ flexDirection: "column", alignItems: "center" }} >
                                         <img src={logo} alt="" style={{ width: 170, height: 70 }} />
-                                        <div className="in-l" style={{textAlign:"center"}} >
-                                            <h3 style={{ fontSize: 23, color:"#000" }} >Maison Wellness place</h3>
+                                        <div className="in-l" style={{ textAlign: "center" }} >
+                                            <h3 style={{ fontSize: 23, color: "#000" }} >Maison Wellness place</h3>
                                         </div>
 
                                         <div className="in-r">
@@ -566,35 +598,35 @@ const Invoice = ({
                                                 fontWeight: 500,
                                                 // backgroundColor: "red",
                                                 width: "16%",
-                                                 color:"#000" 
+                                                color: "#000"
                                             }}>S/N</th>
                                             <th style={{
                                                 fontSize: 11,
                                                 fontWeight: 500,
                                                 // backgroundColor: "#fff",
                                                 width: "90%",
-                                                 color:"#000" 
+                                                color: "#000"
                                             }}>PRODUCT</th>
                                             <th style={{
                                                 fontSize: 11,
                                                 fontWeight: 500,
                                                 // backgroundColor: "#000",
                                                 width: "30%",
-                                                 color:"#000" 
+                                                color: "#000"
                                             }}>PRICE</th>
                                             <th style={{
                                                 fontSize: 11,
                                                 fontWeight: 500,
                                                 // backgroundColor: "red",
                                                 width: "30%",
-                                                 color:"#000" 
+                                                color: "#000"
                                             }}>QTY.</th>
                                             <th style={{
                                                 fontSize: 11,
                                                 fontWeight: 500,
                                                 // backgroundColor: "#000",
                                                 width: "30%",
-                                                 color:"#000" 
+                                                color: "#000"
                                             }}>SUBTOTAL</th>
                                         </tr>
                                         {
@@ -605,7 +637,7 @@ const Invoice = ({
                                                         fontWeight: 500,
                                                         // backgroundColor: "red",
                                                         width: "16%",
-                                                        color:"#000" 
+                                                        color: "#000"
                                                     }}>{index + 1}</td>
                                                     <td style={{
                                                         fontSize: 11,
@@ -621,7 +653,7 @@ const Invoice = ({
                                                         // backgroundColor: "red",
                                                         width: "30%",
                                                         textAlign: "center",
-                                                        color:"#000" 
+                                                        color: "#000"
                                                     }}> {NumberWithCommas(`₦${items.metaData.price}`)} </td>
                                                     <td style={{
                                                         fontSize: 11,
@@ -629,7 +661,7 @@ const Invoice = ({
                                                         // backgroundColor: "red",
                                                         width: "30%",
                                                         textAlign: "center",
-                                                        color:"#000" 
+                                                        color: "#000"
                                                     }}>{items.qty}</td>
                                                     <td style={{
                                                         fontSize: 11,
@@ -637,7 +669,7 @@ const Invoice = ({
                                                         // backgroundColor: "red",
                                                         width: "30%",
                                                         textAlign: "center",
-                                                        color:"#000" 
+                                                        color: "#000"
                                                     }}> {NumberWithCommas(`₦${items.metaData.price * items.qty}`)} </td>
                                                 </tr>
                                             })
@@ -1250,27 +1282,7 @@ const Invoice = ({
                                                     Invalid amount
                                                 </p>
                                             </> : <>
-                                                <p
-                                                    style={{
-                                                        color: "#000",
-                                                        fontSize: 13,
-                                                        fontWeight: 500,
-                                                        marginRight: 20
-                                                    }}
-                                                >
-                                                    {complimentaryMethod}
-                                                </p>
-
-                                                <p
-                                                    style={{
-                                                        color: "#000",
-                                                        fontSize: 15,
-                                                        fontWeight: 500,
-                                                        marginRight: 20
-                                                    }}
-                                                >
-                                                    ₦{NumberWithCommas(grossTotal - amountToPay)}
-                                                </p>
+                                                <AmountToPay />
                                             </>}
 
 
@@ -1315,7 +1327,7 @@ const Invoice = ({
                                         }}
                                         onChange={(e) => {
                                             setdiscount(e.target.value);
-                                            let discAmt = grossTotal*parseInt(e.target.value)/100;
+                                            let discAmt = grossTotal * parseInt(e.target.value) / 100;
                                             // setamountToPay(parseInt(grossTotal-discAmt))
                                         }}
                                         value={discount}
