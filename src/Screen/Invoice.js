@@ -371,7 +371,7 @@ const Invoice = ({
                     marginRight: 20
                 }}
             >
-                ₦{NumberWithCommas(discount ? grossTotal - amountToPay : InvoiceAmount - taxWithoutDiscount)}
+                ₦{NumberWithCommas(discount ? grossTotal - amountToPay : InvoiceAmount - amountToPay+taxWithoutDiscount)}
                 {/* ₦{NumberWithCommas(taxWithDiscount)} */}
             </p>
         </>
