@@ -202,7 +202,7 @@ const Invoice = ({
     }
 
     function FetchInvoices() {
-        fetchAllInvoicesByBranch(User.branch) 
+        fetchAllInvoicesByBranch(User.branch)
             .then(response => {
                 setloading(false)
                 disp_savedInvoice(response.data)
@@ -228,6 +228,7 @@ const Invoice = ({
     let discountAmount = ((costOfProducts) * parseInt(discount)) / 100
     let taxWithDiscount = ((InvoiceAmount) - (discountAmount)) * 0.075
     let grossTotal = ((costOfProducts) - (discountAmount)) + (taxWithDiscount)
+    let grossTotalWithoutDiscount = ((costOfProducts)+ (costOfProducts*0.075))
 
 
     function Paymentbutton() {
@@ -249,7 +250,7 @@ const Invoice = ({
                     justifyContent: "space-between",
                 }}>
                     <p style={{ color: "#000", fontSize: 15, fontWeight: 700 }}  > Subtotal</p>
-                    <p style={{ color: "#000", fontSize: 15, fontWeight: 700 }}  > ₦{costOfProducts} </p>
+                    <p style={{ color: "#000", fontSize: 15, fontWeight: 700 }}  > ₦{NumberWithCommas(costOfProducts)} </p>
                 </div>
 
                 {discount > 0 &&
@@ -285,7 +286,7 @@ const Invoice = ({
                     justifyContent: "space-between",
                 }}>
                     <p style={{ color: "#000", fontSize: 15, fontWeight: 700 }}  > Total</p>
-                    <p style={{ color: "#000", fontSize: 15, fontWeight: 700 }}  > ₦{NumberWithCommas(discount > 0 ? grossTotal : amountWithVAT)} </p>
+                    <p style={{ color: "#000", fontSize: 15, fontWeight: 700 }}  > ₦{NumberWithCommas(discount > 0 ? grossTotal : grossTotalWithoutDiscount)} </p>
                 </div>
 
 
@@ -936,8 +937,9 @@ const Invoice = ({
                                                                 sum += items.product[i].totalCost;
                                                             }
                                                             // console.log(items.id)
+
                                                             disp_invoice_products({
-                                                                vat: parseInt(sum * 0.75 / 100),
+                                                                vat: parseInt(sum * 0.75),
                                                                 totalPrice: sum,
                                                                 product: items.product,
                                                                 paid: items.paid,
@@ -945,7 +947,8 @@ const Invoice = ({
                                                                 invoiceID: items.invoiceID
                                                             })
                                                             disp_view_invoice(true)
-                                                            setamountToPay(amountWithVAT)
+                                                            setamountToPay(sum + (sum * 7.5 / 100))
+                                                            // console.log(sum+(sum * 7.5 / 100))
                                                         }}
                                                         style={{
                                                             cursor: "pointer",
@@ -1191,7 +1194,7 @@ const Invoice = ({
                                                 marginRight: 20
                                             }}
                                         >
-                                           1304988564
+                                            1304988564
                                         </p>
                                         <p
                                             style={{
@@ -1200,7 +1203,7 @@ const Invoice = ({
                                                 fontWeight: 700,
                                             }}
                                         >
-                                           maison wellness place
+                                            maison wellness place
                                         </p>
                                     </> :
                                         <>
