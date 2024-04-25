@@ -228,7 +228,7 @@ const Invoice = ({
     let discountAmount = ((costOfProducts) * parseInt(discount)) / 100
     let taxWithDiscount = ((InvoiceAmount) - (discountAmount)) * 0.075
     let grossTotal = ((costOfProducts) - (discountAmount)) + (taxWithDiscount)
-    let grossTotalWithoutDiscount = ((costOfProducts)+ (costOfProducts*0.075))
+    let grossTotalWithoutDiscount = ((costOfProducts) + (costOfProducts * 0.075))
 
 
     function Paymentbutton() {
@@ -558,7 +558,7 @@ const Invoice = ({
 
                                         <div className="in-r">
                                             <spam style={{ color: "#000", fontSize: 14 }} >2nd creek drive Woji</spam>
-                                            <p style={{ color: "#000", fontSize: 14 }} >07086198972,  <spam>https://maisonwellnessplace.com</spam></p>
+                                            <p style={{ color: "#000", fontSize: 14 }} >09126114067,  <spam>https://maisonwellnessplace.com</spam></p>
                                         </div>
                                     </div>
 
