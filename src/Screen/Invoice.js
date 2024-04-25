@@ -556,7 +556,7 @@ const Invoice = ({
                                         </div>
 
                                         <div className="in-r">
-                                            <spam style={{ color: "#000", fontSize: 14 }} >23, Woji Road, GRA, Port Harcourt , Rivers State</spam>
+                                            <spam style={{ color: "#000", fontSize: 14 }} >2nd creek drive Woji</spam>
                                             <p style={{ color: "#000", fontSize: 14 }} >07086198972,  <spam>https://maisonwellnessplace.com</spam></p>
                                         </div>
                                     </div>
@@ -1181,7 +1181,7 @@ const Invoice = ({
                                                 marginRight: 20
                                             }}
                                         >
-                                            Access bank
+                                            providus bank
                                         </p>
                                         <p
                                             style={{
@@ -1191,7 +1191,7 @@ const Invoice = ({
                                                 marginRight: 20
                                             }}
                                         >
-                                            0726454521
+                                           1304988564
                                         </p>
                                         <p
                                             style={{
@@ -1200,7 +1200,7 @@ const Invoice = ({
                                                 fontWeight: 700,
                                             }}
                                         >
-                                            Aminigbo Paul
+                                           maison wellness place
                                         </p>
                                     </> :
                                         <>
