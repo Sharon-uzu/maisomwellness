@@ -117,7 +117,7 @@ const Dashboard = ({
 
               </div>
 
-              <div className="first-l-cards">
+              <div className="first-l-cards" style={{zIndex:1}}>
 
                 <div className="first-l-card" style={{ backgroundColor: '#FFE2E5', wordWrap: "break-word" }}>
                   <div>
@@ -260,7 +260,7 @@ const Dashboard = ({
                   <td>{item.product.length}</td>
                   <td>{item.marketerid ? "Referred" : "Walk-in"}</td>
                   <td>{formatDate(item.created_at)}</td>
-                  <td className='av' style={{ color: item.paid == true ? "green" : "crimson" }} >{item.paid == true ? "PAID" : "NOT PAID"}</td>
+                  <td className='av' style={{ color: item.paid == true ? "green" : "crimson", textAlign:'start' }} >{item.paid == true ? "PAID" : "NOT PAID"}</td>
                   {/* <td
                     onClick={() => {
                       disp_invoice_products({

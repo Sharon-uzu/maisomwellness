@@ -15,6 +15,7 @@ import Dashboardadmin from "./Screen/admin/dashboard"
 import SalesMgt from './Screen/admin/sales-mgt';
 import StaffMgt from './Screen/admin/staff-mgt';
 import ProductMgt from './Screen/admin/product-mgt';
+import Payroll from './Screen/admin/Payroll';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             <Route path='/admin-salse-management' element={<SalesMgt />} />
             <Route path='/admin-staff-management' element={<StaffMgt />} />
             <Route path='/admin-product-management' element={<ProductMgt />} />
+            <Route path='/payroll' element={<Payroll />} />
 
 
           </Routes>

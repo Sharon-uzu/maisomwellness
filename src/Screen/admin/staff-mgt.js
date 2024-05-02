@@ -16,6 +16,20 @@ import { Notify, NumberWithCommas, formatDate } from '../../utils';
 import { FaArrowAltCircleRight, FaPrint, FaTimes } from 'react-icons/fa';
 import { useNavigate } from 'react-router';
 import AdminSidebar from '../../Components/admin-sidebar';
+import t1 from '../../images/t1.png'
+import t2 from '../../images/t2.png'
+import t3 from '../../images/t3.png'
+import t4 from '../../images/t4.png'
+import t5 from '../../images/t5.png'
+import t6 from '../../images/t6.png'
+import d1 from '../../images/d1.png'
+import d2 from '../../images/d2.png'
+import d3 from '../../images/d3.png'
+import d4 from '../../images/d4.png'
+import sun from '../../images/sun.png'
+import { CiSearch } from "react-icons/ci";
+import { CiCalendar } from "react-icons/ci";
+
 
 
 
@@ -80,6 +94,149 @@ const Staffmgt = ({
     }, [])
 
 
+    const Cards = [
+        {
+            id:1,
+            num:452,
+            img1:t1,
+            img2:d1,
+            text1:'Total Employees',
+            text2: '2 new employees added',
+            background:'#99cf7280'
+
+        },
+
+        {
+            id:2,
+            num:360,
+            img1:t2,
+            img2:d2,
+            text1:'On Time',
+            text2: '-10% Less than yesterday',
+            background:'#99cf7280'
+
+        },
+
+        {
+            id:3,
+            num:30,
+            img1:t3,
+            img2:d3,
+            text1:'Absent',
+            text2: '+3% Increase than yesterday',
+            background:'#cf727280'
+
+        },
+
+        {
+            id:4,
+            num:62,
+            img1:t4,
+            img2:d3,
+            text1:'Late Arrival',
+            text2: '+3% Increase than yesterday',
+            background:'#cf727280'
+
+        },
+
+        {
+            id:5,
+            num:6,
+            img1:t5,
+            img2:d2,
+            text1:'Early Departures',
+            text2: '-10% Less than yesterday',
+            background:'##99cf7280'
+
+        },
+
+        {
+            id:6,
+            num:42,
+            img1:t6,
+            img2:d4,
+            text1:'Time-off',
+            text2: '2% Increase than yesterday',
+            background:'#99cf7280'
+
+        }
+
+        
+
+    ]
+
+    const Attendance = [
+        {
+            id:2341421,
+            names:'Ahmed Rashdan',
+            role:'Help Desk Executive',
+            dept:'IT Department',
+            date:'29 July 2023',
+            status: 'Work from office',
+            checkIn:'09:00',
+            checkOut:'18:00',
+            hours:'10h 2m',
+        },
+
+        {
+            id:2341421,
+            names:'Ali Alhamdan',
+            role:'Senior Executive',
+            dept:'Marketing',
+            date:'29 July 2023',
+            status: 'Absent',
+            checkIn:'00:00',
+            checkOut:'00:00',
+            hours:'0m',
+        },
+
+        {
+            id:2341421,
+            names:'Mona Alghafar',
+            role:'Senior Manager',
+            dept:'Design',
+            date:'29 July 2023',
+            status: 'Late Arrival',
+            checkIn:'10:30',
+            checkOut:'18:00',
+            hours:'8h 30m',
+        },
+    ]
+
+
+    const getBgColor = (bg) => {
+        switch (bg) {
+            case 'Work from office':
+                return '#E6EFFC'; // Green
+            case 'Absent':
+                return '#FFE5EE'; // Red
+            case 'Late Arrival':
+                return '#FFF8E7'; // Orange
+            default:
+                return '#000000'; // Default color
+        }
+    };
+
+    const getStatusColor = (status) => {
+        switch (status) {
+            case 'Work from office':
+                return '#0764E6'; // Green
+            case 'Absent':
+                return '#FF0000'; // Red
+            case 'Late Arrival':
+                return '#D5B500'; // Orange
+            default:
+                return '#fff'; // Default color
+        }
+    };
+
+
+    
+
+
+
+    
+
     return (
         <div>
             {/* {console.log(amount_Array)} */}
@@ -106,10 +263,10 @@ const Staffmgt = ({
                 <AdminSidebar />
 
                 <div className='main'>
-                    {/* <DashHeader User={User} /> */}
+                    <DashHeader User={User} />
 
 
-                    <div className="product">
+                    {/* <div className="product">
                         <div className="top">
                             <h3>Staff management</h3>
 
@@ -118,7 +275,6 @@ const Staffmgt = ({
                             </div>
 
                         </div>
-                        {/* {console.log(SavedInvoices)} */}
 
                         <table>
                             <tr>
@@ -127,7 +283,6 @@ const Staffmgt = ({
                                 <th><b>Account type</b></th>
                                 <th><b>Password</b></th>
                                 <th><b>Branch</b></th>
-                                {/* <th><b>Action</b></th> */}
                             </tr>
 
                             {staffs && staffs.map((item, index) => {
@@ -138,17 +293,7 @@ const Staffmgt = ({
                                     <td>{item.type}</td>
                                     <td><b>{item.password}</b></td>
                                     <td><b>{item.branch}</b></td>
-                                    {/* <td
-                                        onClick={() => {
-                                            handleOpen()
-                                        }}
-                                        style={{
-                                            cursor: "pointer",
-                                            color: "#252C58",
-                                            fontWeight: 700,
-                                            textAlign: "center"
-                                        }} >View <FaArrowAltCircleRight /> </td> */}
-
+                                    
                                 </tr>
                             })}
 
@@ -156,7 +301,135 @@ const Staffmgt = ({
                         </table>
 
 
+                    </div> */}
+
+
+                    <div className="emp-record">
+
+                        <div className="emp-l">
+
+                            {
+                                Cards.map((Card, id)=>{
+                                    return(
+
+                                        <div className="emp-card" key={id}>
+                                            <div className="emp-c-c">
+                                                <div className="numb-i">
+                                                    <h3>{Card.num}</h3>
+                                                    <span>
+                                                        <img src={Card.img1} alt="" />
+                                                    </span>
+                                                </div>
+
+                                                <div className="tot">
+                                                    <h5>{Card.text1}</h5>
+                                                    <div className='t-i'> 
+                                                        <span style={{backgroundColor:Card.background}}>
+                                                            <img src={Card.img2} alt="" />
+                                                        </span>
+                                                        <p>{Card.text2}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    )
+                                })
+                            }
+
+
+
+                        </div>
+
+
+                        <div className="emp-r">
+
+                            <div className="emp-r-c">
+                                <div className="time">
+                                    <img src={sun} alt="" />
+                                    <div className="r-t">
+                                        <h4>8:02:09 AM</h4>
+                                        <h6>Realtime Insight</h6>
+                                    </div>
+                                </div>
+
+                                <h5>Today: </h5>
+                                <h5>18th March 2024</h5>
+                                <div className="view">
+                                    <button>View Attendance</button>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+
+                        
+                        
+
                     </div>
+
+
+
+                        <div className="attendance">
+                            <div className="att-c">
+                                <div className="overview">
+                                    <h4>Attendance Overview</h4>
+                                    <div className="search">
+                                        <CiSearch className='s-i'/>
+                                        <input type="search" placeholder='Quick Search'/>
+                                    </div>
+
+                                    <div className="date">
+                                        <CiCalendar className='c-i'/>
+                                        <p>29 July, 2024</p>
+                                    </div>
+
+                                    <button>View Attendance</button>
+                                </div>
+
+                                <table>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Employee</th>
+                                        <th>Role</th>
+                                        <th>Department</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Check-in</th>
+                                        <th>Check-out</th>
+                                        <th>Work hours</th>
+                                    </tr>
+
+
+                                    {
+                                        Attendance.map((Attend, id)=>{
+                                            const statusColor = getStatusColor(Attend.status);
+                                            const BgColor = getBgColor(Attend.status);
+                                            return(
+                                                <tr key={id}>
+                                                    <td>{Attend.id}</td>
+                                                    <td>{Attend.names}</td>
+                                                    <td>{Attend.role}</td>
+                                                    <td>{Attend.dept}</td>
+                                                    <td>{Attend.date}</td>
+                                                    <td><button style={{ color: statusColor, backgroundColor:BgColor }}>{Attend.status}</button></td>
+                                                    <td style={{ color: statusColor }}>{Attend.checkIn}</td>
+                                                    <td style={{ color: statusColor }}>{Attend.checkOut}</td>
+                                                    <td style={{ color: statusColor }}>{Attend.hours}</td>
+                                                </tr>
+                                            )
+                                        })
+                                    }
+                                    
+
+                                    
+                                </table>
+
+
+                                
+                            </div>
+                        </div>
 
 
                 </div>
@@ -165,7 +438,7 @@ const Staffmgt = ({
 
 
 
-            <Modal
+            {/* <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
                 open={open}
@@ -555,7 +828,7 @@ const Staffmgt = ({
 
                     </Box>
                 </Fade>
-            </Modal>
+            </Modal> */}
 
 
 

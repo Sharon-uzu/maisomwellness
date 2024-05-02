@@ -362,14 +362,16 @@ body {
 }
 
 .main-dash .main {
-  width: 80%;
+  width: calc(98% - 250px);
   /* margin: auto; */
   height: 100%;
   padding-bottom: 30px;
   overflow-y: scroll;
   /* overflow-x: hidden; */
   padding-bottom: 30px;
-  margin-left: 20%;
+  margin-left: auto;
+  /* background-color: red; */
+  /* overflow-x: hidden; */
 }
 
 .main-dash .main .dh {
@@ -904,9 +906,1102 @@ body {
   color: #5e5e5e;
 }
 
+
+/* Sales management */
+
+
+.sales-summary{
+  width: 97%;
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.sales-summary .sales-o{
+  width: 65%;
+  background-color: #fff;
+  padding: 10px 0;
+  border-radius: 10px;
+}
+
+.sales-summary  .sales1{
+  width: 95%;
+  margin: auto;
+  
+}
+
+
+.sales-summary .sales1 h2{
+
+  font-size: 20px;
+  font-weight: 500;
+  color: #383E49;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sales-summary .sales1 h2 span{
+  font-size: 14px;
+  font-weight: 400;
+  color: #0F50AA;
+
+}
+
+
+
+.sales-summary .sales-o .sales1 .s-c{
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.sales-summary .sales-o .sales1 .s-c .s1{
+    width: 25%;
+    border-right: 1px solid #D9D9D9;
+}
+
+.sales-summary .sales-o .sales1 .s-c .s1:last-child{
+  border: none;
+}
+
+
+.sales-summary .inventory{
+  width: 33%;
+  background-color: #fff;
+  padding: 20px 0;
+  border-radius: 10px;
+
+}
+
+.sales-summary .sales1 table{
+  padding: 25px 0 0 0;
+  width: 100%;
+}
+
+.sales-summary .sales1 table tr{
+  display: flex;
+  justify-content: space-between;
+  border-collapse: collapse;
+  padding: 17px 0;
+  border-top: 1px solid #F0F1F3;
+}
+
+.sales-summary .sales1 table tr th{
+  width: 25%;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #5D6679;
+}
+.sales-summary .sales1 table tr th:last-child{
+  width: 10%;
+}
+
+.sales-summary .sales1 table tr td:last-child{
+  width: 10%;
+}
+.sales-summary .sales1 table tr td{
+  width: 25%;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #5D6679;
+}
+
+.inventory .sales1 .row{
+  width: 100%;
+}
+
+.inventory .sales1 .row .row1{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.inventory .sales1 .row .row1 img{
+  width: 60px;
+  height: 60px;
+}
+
+.inventory .sales1 .row .row1 h6{
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  margin-bottom: 4px;
+  color: #383E49;
+}
+
+.inventory .sales1 .row .row1 p{
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #667085;  
+}
+
+.inventory .sales1 .row .row1 button{
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #AA3028;
+  background: #FEECEB;
+  width: 38px;
+  height: 22px;
+  border: none;
+  border-radius: 5px;
+}
+
+/*  */
+
+/* PROPS CARD1 */
+.c-prp{
+  width: 100%;
+}
+
+.c-prp .c-prp-div{
+  width: 85%;
+  margin: auto;
+  text-align: center;
+}
+
+.c-prp .c-prp-div img{
+  width: 31px;
+  height: 29px;
+  margin-bottom: 10px;
+}
+.c-prp .c-prp-div .c-flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.c-prp .c-prp-div .c-flex span:first-child{
+  font-size: 14px;
+  font-weight: 600;
+  color: #5D6679;
+
+}
+
+.c-prp .c-prp-div .c-flex span:last-child{
+  font-size: 14px;
+  font-weight: 500;
+  color: #667085;
+
+}
+
+.c-prp .c-prp-div h6{
+  font-size: 15.13px;
+  font-weight: 600;
+  color: #5D6679;
+  margin-bottom: 3px;
+
+}
+
+.c-prp .c-prp-div p{
+  font-size: 13px;
+  font-weight: 500;
+  color: #444444;
+
+}
+
+/* props ends here */
+
+
+.sales-summary .inventory .sales1 .i-c{
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.sales-summary .inventory .sales1 .i-c .i-c1{
+    width: 50%;
+    border-right: 1px solid #D9D9D9;
+}
+
+.sales-summary .inventory .sales1 .i-c .i-c1:last-child{
+  border: none;
+}
+
+
+/* STAFF MANAGEMENT */
+.emp-record{
+  width: 95%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.emp-record .emp-l{
+  width: 68%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  
+}
+
+.emp-record .emp-l .emp-card{
+  width: 32%;
+  background-color: #fff;
+  padding: 10px 0;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  
+}
+
+.emp-record .emp-l .emp-card .emp-c-c{
+  width: 92%;
+  margin: auto;
+}
+
+.emp-record .emp-l .emp-card .emp-c-c .numb-i{
+  display: flex;
+  justify-content: space-between;
+}
+
+.emp-record .emp-l .emp-card .emp-c-c .numb-i h3{
+  font-size: 35.32px;
+  font-weight: 300;
+  margin-bottom: 18px;
+  color: #252C58;
+
+}
+
+.emp-record .emp-l .emp-card .emp-c-c .numb-i span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 39px;
+  height: 39px;
+  border-radius: 39px;
+  background: #E6EAF5;
+}
+
+.emp-record .emp-l .emp-card .emp-c-c .numb-i span img{
+  width: 50%;
+  height: 50%;
+}
+
+.emp-record .emp-l .emp-card .emp-c-c .tot h5{
+  font-size: 16px;
+  font-weight: 300;
+  color: #252C58;
+  margin-bottom: 5px;
+}
+.emp-record .emp-l .emp-card .emp-c-c .tot .t-i{
+  display: flex;
+  align-items: center;
+}
+
+.emp-record .emp-l .emp-card .emp-c-c .tot .t-i span{
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+  background-color: #99cf7280;
+  color: #cf727280;
+}
+
+.emp-record .emp-l .emp-card .emp-c-c .tot .t-i span img{
+  width: 50%;
+  height: 50%;
+}
+
+.emp-record .emp-l .emp-card .emp-c-c .tot .t-i p{
+  font-size: 13.5px;
+  font-weight: 300;
+  color: #252C58;
+}
+
+.emp-record .emp-r{
+  width: 31%;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px 0;
+}
+
+.emp-record .emp-r .emp-r-c{
+  width: 80%;
+  margin: auto;
+}
+
+.emp-record .emp-r .emp-r-c .time{
+  display: flex;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.emp-record .emp-r .emp-r-c .time img{
+  width: 40px;
+  height: 40px; 
+  margin-right: 30px;
+}
+
+.emp-record .emp-r .emp-r-c .time .r-t{
+  width: fit-content;
+}
+
+.emp-record .emp-r .emp-r-c .time .r-t h4{
+  font-size: 24.05px;
+  font-weight: 300;
+  margin-bottom: 5px;
+  color: #a0a3b6;
+}
+
+.emp-record .emp-r .emp-r-c .time .r-t h6{
+  font-size: 13px;
+  font-weight: 300;
+  color: #a0a3b6;
+}
+.emp-record .emp-r .emp-r-c h5{
+  font-size: 18.04px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.emp-record .emp-r .emp-r-c .view{
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.emp-record .emp-r .emp-r-c .view button{
+  width: 90%;
+  background: #252C58;
+  border: none;
+  border-radius: 12px;
+  height: 36px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.attendance{
+  width: 95%;
+  margin: auto;
+  background-color: #fff;
+  padding: 20px 0;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.attendance .att-c{
+  width: 97%;
+  margin: auto;
+}
+
+.attendance .att-c .overview{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.attendance .att-c .overview h4{
+  font-size: 18.61px;
+  font-weight: 400;
+  color: #252C58;
+}
+.attendance .att-c .overview .search{
+  width: 38%;
+  padding: 0 10px;
+  height: 37px;
+  border: 0.93px solid #D5D9DD;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.attendance .att-c .overview .search .s-i{
+  font-size: 13px;
+  color: #9295AB;
+  margin-right: 7px;
+}
+
+.attendance .att-c .overview .search input{
+  width: 80%;
+  border: none;
+  background-color: transparent;
+  height: 100%;
+}
+
+.attendance .att-c .overview .date{
+  padding: 0 20px;
+  height: 37px;
+  border: 0.93px solid #D5D9DD;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  color: #9295AB;
+}
+
+.attendance .att-c .overview .date .c-i{
+  font-size: 13px;
+  margin-right: 7px;
+}
+
+.attendance .att-c .overview .date p{
+ font-size: 13px;
+
+}
+
+.attendance .att-c .overview button{
+  background-color: #252C58;
+  color: #fff;
+  border-radius: 10px;
+  border: none;
+  height: 37px;
+  font-size: 13px;
+  font-weight: 400;
+  padding: 0 20px;
+}
+
+.attendance .att-c table{
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.attendance .att-c table tr{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-top: 0.93px solid #D5D9DD;
+  border-collapse: collapse;
+  align-items: center;
+}
+
+.attendance .att-c table tr th{
+  width:10%;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+
+}
+
+.attendance .att-c table tr th:nth-child(2){
+  width: 12%;
+}
+
+.attendance .att-c table tr th:nth-child(3){
+  width: 14%;
+}
+
+.attendance .att-c table tr th:nth-child(4){
+  width: 12%;
+}
+
+.attendance .att-c table tr th:nth-child(6){
+  width: 12%;
+}
+
+.attendance .att-c table tr td{
+  width: 10%;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.attendance .att-c table tr td:nth-child(2){
+  width: 12%;
+}
+
+.attendance .att-c table tr td:nth-child(3){
+  width: 14%;
+}
+
+.attendance .att-c table tr td:nth-child(4){
+  width: 12%;
+}
+
+.attendance .att-c table tr td:nth-child(6){
+  width: 12%;
+  
+}
+
+.attendance .att-c table tr td button{
+  border: none;
+  width: fit-content;
+  padding:6px 11px;
+  font-size: 12px;
+  border-radius: 5px;
+  background-color: #10A760;
+}
+
+
+/* PRODUCT MANAGEMENT */
+
+.products{
+  width: 96%;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.product-top{
+  width: 100%;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px 0;
+}
+
+.product-top .product-c{
+  width: 97%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.product-top .product-c h2{
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 500;
+
+}
+
+.product-top .product-c .prod1{
+  width: 15%;
+}
+
+.product-top .product-c .prod1 h3{
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.product-top .product-c .prod1 h6{
+  font-size: 15px;
+  font-weight: 500;
+  color: #5D6679;
+  margin-bottom: 10px;
+}
+
+.product-top .product-c .prod1 p{
+  font-size: 13.14px;
+  font-weight: 400;
+  line-height: 19.72px;
+  color: #858D9D;
+}
+
+.product-top .product-c .prod2{
+  width: 28%;
+  border-left: 0.94px solid #D9D9D9
+}
+
+.product-top .product-c .prod2 .p2-c{
+  width: 80%;
+  margin: auto;
+}
+
+.product-top .product-c .prod2 .p2-c .p-f1{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-table{
+  width: 100%;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px 0;
+  margin-top: 30px;
+}
+
+.product-table .p-t-c{
+  width: 95%;
+  margin: auto;
+}
+
+.product-table .p-t-c .p-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-table .p-t-c .p-top h2{
+  font-size: 20px;
+  font-weight: 500;
+  color: #383E49;
+}
+
+.product-table .p-t-c .p-top .p-btns{
+  display: flex;
+}
+
+.product-table .p-t-c .p-top .p-btns button{
+  height: 40.26px;
+  padding:0 10px ;
+  border-radius: 4px ;
+  background-color: #252C58;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  margin-left: 13px;
+  border: none;
+}
+
+.product-table .p-t-c .p-top .p-btns .filter{
+  background-color: transparent;
+  color: #5D6679;
+  border: 1px solid #D0D3D9
+}
+
+.product-table .p-t-c .p-top .p-btns .filter .fil{
+  margin-right: 6px;
+}
+
+
+.product-table .p-t-c table{
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.product-table .p-t-c table tr{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-top: 0.93px solid #D5D9DD;
+  border-collapse: collapse;
+  align-items: center;
+}
+
+.product-table .p-t-c table tr th{
+  width:15%;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+
+}
+
+.product-table .p-t-c table tr td{
+  width: 15%;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* product modal */
+
+/* Product modal */
+
+.modal1{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal1 .modal1-content{
+  width: 50%;
+  background-color: #fff;
+  padding: 30px 0;
+  border-radius: 10px;
+}
+
+.modal1 .modal1-content .close{
+  width: 90%;
+  margin: auto;
+  text-align: end;
+  
+}
+
+.modal1 .modal1-content .close button{
+  width: 30px;
+  height: 30px;
+  background-color: #252C58;
+  color: #fff;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.modal1 .modal1-content .product-form{
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 30px;
+
+}
+.modal1 .modal1-content .product-form div{
+  width: 48%;
+}
+
+.modal1 .modal1-content .product-form .des{
+  width: 100%;
+}
+.modal1 .modal1-content .product-form div p{
+  margin: 0;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.modal1 .modal1-content .product-form div input{
+  width: 95%;
+  background-color: transparent;
+  border: 2px solid #252C58;
+  height: 45px;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+.modal1 .modal1-content .product-form div select{
+  width: 100%;
+  background-color: transparent;
+  border: 2px solid #252C58;
+  height: 45px;
+  border-radius: 10px;
+}
+.modal1 .modal1-content .product-form .btn{
+  width: 100%;
+  text-align: center;
+}
+.modal1 .modal1-content .product-form div button{
+  width: 50%;
+  height: 45px;
+  border: none;
+  background-color: #252C58;
+  color: #fff;
+  border-radius: 10px;
+  margin-top: 48px;
+}
+
+
+.modal1 .modal1-content .product-form div textarea{
+  width: 98%;
+  background-color: transparent;
+  border: 2px solid #252C58;
+  height: 155px;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+
+
+
+/* Payroll Processing */
+.payroll{
+  width: 95%;
+  margin: auto;
+  margin-top: 10px;
+  padding: 20px 0;
+  
+}
+
+.payroll .pay-top{
+  display: flex;
+  justify-content: space-between;
+}
+
+.payroll .pay-top .paytop-l{
+  width: 48%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.payroll .pay-top .paytop-l .paycard{
+  width: 46%;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+/* paycard comp */
+
+.p-card{
+  width: 100%;
+}
+
+.p-card .p-card-c{
+  width: 92%;
+  margin: auto;
+}
+
+.p-card .p-card-c h6{
+  font-size: 16px;
+  font-weight: 600;
+  color: #8D8B8B;  
+  margin-bottom: 24px;
+}
+
+.p-card .p-card-c h4{
+  font-size: 20px;
+  font-weight: 600;
+  color: #171717;
+  margin-bottom: 18px;
+}
+
+.p-card .p-card-c button{
+  height: 27px;
+  padding: 0 13px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  border: none;
+}
+
+.payroll .pay-top .paytop-l .paycard .trans{
+  width: 90%;
+  margin: auto;
+}
+
+.payroll .pay-top .paytop-l .paycard .trans h6{
+  font-size: 16px;
+  font-weight: 600;
+  color: #8D8B8B;  
+  margin-bottom: 24px;
+}
+
+.payroll .pay-top .paytop-l .paycard .trans .trans-s{
+  display: flex;
+  justify-content: space-between;
+}
+.payroll .pay-top .paytop-l .paycard .trans .trans-s .trans1{
+  width: 31%;
+  text-align: center;
+}
+
+.payroll .pay-top .paytop-l .paycard .trans .trans-s .trans1 p{
+  font-size: 12px;
+  font-weight: 400;
+  color: #6D788C;
+  margin-bottom: 20px;
+
+}
+
+.payroll .pay-top .paytop-l .paycard .trans .trans-s .trans1 h5{
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.payroll .pay-top .paytop-r{
+  width: 48%;
+  background-color: #fff;
+  padding: 5px 0;
+  border-radius: 10px;
+}
+
+.payroll .pay-top .paytop-r .pie{
+  width: 100%;
+}
+
+.payroll .payroll-table{
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px 0;
+  border-radius: 10px;
+}
+
+.payroll .payroll-table .p-t-c{
+  width: 95%;
+  margin: auto;
+}
+
+.payroll .payroll-table .p-t-c .pay-t-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.payroll .payroll-table .p-t-c .pay-t-top h2{
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.payroll .payroll-table .p-t-c .pay-t-top .search{
+  width: 22%;
+  border: 0.72px solid #E9EDF7;
+  border-radius: 6px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  color: #B8C2D6;
+  justify-content: space-between;
+
+}
+
+.payroll .payroll-table .p-t-c .pay-t-top .search input{
+  border: none;
+  background-color: transparent;
+  height: 100%;
+  width: 80%;
+  border-right: 0.72px solid #E9EDF7;
+}
+
+.payroll .payroll-table .p-t-c table{
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.payroll .payroll-table .p-t-c table tr{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-top: 0.93px solid #D5D9DD;
+  border-collapse: collapse;
+  align-items: center;
+}
+
+.payroll .payroll-table .p-t-c table tr th{
+  width:25%;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+
+}
+
+.payroll .payroll-table .p-t-c table tr th:last-child{
+  width: 12%;
+}
+
+.payroll .payroll-table .p-t-c table tr td{
+  width: 25%;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.payroll .payroll-table .p-t-c table tr td:last-child{
+  width: 12%;
+}
+
+
+.payroll .payroll-table .p-t-c table tr td button{
+  border: none;
+  width: fit-content;
+  padding:6px 11px;
+  font-size: 12px;
+  border-radius: 5px;
+
+}
+
+
+@media screen and (max-width:1400px){
+  .product{
+    overflow-x: auto;
+  }
+  .product table{
+    border-collapse: collapse;
+    width: 1300px;
+  }
+
+  .product table tr{
+    width: 97%;
+    margin: auto;
+  }
+
+  .attendance .att-c{
+    overflow-x: auto;
+  }
+
+  .attendance .att-c .overview{
+    border-collapse: collapse;
+    width: 1300px;
+  }
+  .attendance .att-c table{
+    border-collapse: collapse;
+    width: 1300px;
+  }
+
+  .attendance .att-c table tr{
+    width: 97%;
+    margin: auto;
+  }
+  .product-table{
+    overflow-x: auto;
+  }
+
+
+  .product-table .p-t-c .p-top{
+    width: 1300px;
+    padding-left: 6px;
+  }
+  .product-table .p-t-c table{
+    border-collapse: collapse;
+    width: 1300px;
+  }
+
+  .product-table .p-t-c table tr{
+    width: 97%;
+    margin: auto;
+  }
+
+
+
+
+
+   .payroll .payroll-table{
+    overflow-x: auto;
+  }
+
+ .payroll .payroll-table .p-t-c .pay-t-top{
+    width: 900px;
+
+  }
+  .payroll .payroll-table .p-t-c table{
+    border-collapse: collapse;
+    width: 900px;
+  }
+
+ 
+}
+
+@media screen and (max-width:1200px){
+  .c-prp .c-prp-div .c-flex{
+    flex-direction: column;
+  }
+}
+
+
+
 @media screen and (max-width:1150px) {
   .invoice-s {
     width: 75%;
+    background-color: #1366D9;
+  }
+
+  .emp-record{
+    flex-direction: column-reverse;
+  }
+
+  .emp-record .emp-l{
+    width: 100%;
+  }
+
+  .emp-record .emp-r{
+    width: 60%;
+    margin-bottom: 15px;
+  }
+
+  .payroll .pay-top{
+    flex-direction: column;
+  }
+
+  .payroll .pay-top .paytop-l{
+    width: 100%;
+  }
+
+  .payroll .pay-top .paytop-r{
+    width: 100%;
   }
 
 }
@@ -936,16 +2031,45 @@ body {
     width: 47%;
     margin-bottom: 10px;
   }
+
+  .inventory .sales1 .row .row1{
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .sales-summary .sales1 h2 {
+    font-size: 14px;
+  }
+
+  .emp-record .emp-l .emp-card{
+    width: 48%;
+  }
+
+  .modal1 .modal1-content{
+    width: 70%;
+  }
+
+}
+
+@media screen and (max-width:900px){
+  .product-top .product-c .prod1{
+    width: 30%;
+    margin-bottom: 20px;
+  }
+
+  .product-top .product-c .prod2{
+    width: 45%;
+  }
+
+
 }
 
 @media screen and (max-width:850px) {
   .invoice-s {
     width: 95%;
   }
-}
 
-
-@media screen and (max-width:800px) {
   .main-dash .main .first {
     flex-direction: column;
   }
@@ -958,6 +2082,11 @@ body {
   .main-dash .main .first .first-r {
     width: 100%;
   }
+}
+
+
+@media screen and (max-width:800px) {
+  
 
   .main-dash .main .second {
     flex-direction: column;
@@ -971,15 +2100,7 @@ body {
     width: 100%;
   }
 
-  .product table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  .product table tr {
-    width: 680px;
-  }
+ 
 
   .sale-m .sale-form {
     width: 85%;
@@ -991,15 +2112,24 @@ body {
 
 @media screen and (max-width:700px) {
 
-
+  .main-dash .main{
+    width: 100%;
+    margin-left: 0;
+  }
   .media-bar {
-    position: absolute;
-    top: 25px;
-    left: 3%;
+    position: fixed;
+    top: 27px;
+    margin-left: 3%;
+    width: 100%;
+    /* background-color: red; */
     z-index: 1000;
     color: #05004E;
     font-size: 17px;
     display: flex;
+  }
+
+  .media-bar #bar{
+    color: #000;
   }
 
   .main-dash .main .main-top {
@@ -1010,19 +2140,18 @@ body {
   .side {
     height: auto;
     display: none;
+    z-index: 100000000000 !important;
   }
 
   .side.active {
     width: 170px;
     height: auto;
-    position: absolute;
-
     padding: 0 0 20px 0;
     display: flex;
     overflow-y: scroll;
     flex-wrap: wrap;
     box-shadow: 4px 4px 10px rgba(69, 65, 78, 0.06);
-    z-index: 10;
+    z-index: 100000000000 !important;
   }
 
   .dash-h {
@@ -1034,6 +2163,15 @@ body {
 
   .sale-m .sale-form section button {
     font-size: 14px;
+  }
+
+  .sales-summary{
+    margin: auto;
+    margin-bottom: 25px;
+  }
+
+  .modal1 .modal1-content{
+    width: 80%;
   }
 
 
@@ -1053,6 +2191,36 @@ body {
     width: 80%;
   }
 
+
+}
+
+@media screen and (max-width:500px){
+  .sales-summary{
+    flex-direction: column;
+  }
+  .sales-summary .sales-o{
+    width: 98.5%;
+    margin-bottom: 15px;
+  }
+
+  .sales-summary .inventory{
+    width: 98.5%;
+  }
+  .inventory .sales1 .row .row1{
+    justify-content: space-between;
+  }
+
+  .modal1 .modal1-content .product-form div{
+    width: 100%;
+  }
+
+  .modal1 .modal1-content .product-form .des{
+    width: 98%;
+  }
+
+  .modal1 .modal1-content .product-form div button{
+    width: 60%;
+  }
 
 }
 
@@ -1134,6 +2302,27 @@ body {
     font-size: 13px;
     padding: 10px;
   }
+  .emp-record .emp-r{
+    width: 100%;
+  }
+  .emp-record .emp-l .emp-card{
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 400px){
+  .product-top .product-c .prod1{
+    width: 100%;
+  }
+
+  .product-top .product-c .prod2{
+    width: 100%;
+  }
+
+  .payroll .pay-top .paytop-l .paycard{
+    width: 100%;
+  }
 
 }
 
@@ -1175,6 +2364,19 @@ body {
     width: 400px;
     overflow-x: scroll;
   } */
+
+  .payroll .pay-top .paytop-r{
+    overflow-x: auto;
+  }
+
+  .payroll .pay-top .paytop-r .pie{
+    width: 400px;
+  }
+
+  .modal1 .modal1-content{
+    width: 90%;
+  }
+
 }
 
 @media screen and (max-width:320px) {

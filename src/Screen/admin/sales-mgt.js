@@ -16,6 +16,21 @@ import { Notify, NumberWithCommas, formatDate } from '../../utils';
 import { FaArrowAltCircleRight, FaPrint, FaTimes } from 'react-icons/fa';
 import { useNavigate } from 'react-router';
 import AdminSidebar from '../../Components/admin-sidebar';
+import Card1 from '../../Components/Card1';
+import img1 from '../../images/c1.png'
+import img2 from '../../images/c2.png'
+import img3 from '../../images/c3.png'
+import img4 from '../../images/c4.png'
+import img5 from '../../images/c5.png'
+import img6 from '../../images/c6.png'
+import Card2 from '../../Components/Card2';
+import i1 from '../../images/i1.png'
+import i2 from '../../images/i2.png'
+import i3 from '../../images/i3.png'
+import i4 from '../../images/i4.png'
+import q1 from '../../images/q1.png'
+import q2 from '../../images/q2.png'
+
 
 
 
@@ -118,7 +133,7 @@ const Salesmgt = ({
                     <DashHeader User={User} />
 
 
-                    <div className="product">
+                    {/* <div className="product">
                         <div className="top">
                             <h3>Today's sales</h3>
 
@@ -127,7 +142,7 @@ const Salesmgt = ({
                             </div>
 
                         </div>
-                        {/* {console.log(SavedInvoices)} */}
+                         {console.log(SavedInvoices)} 
 
                         <table>
                             <tr>
@@ -175,10 +190,212 @@ const Salesmgt = ({
                         </table>
 
 
+                    </div> */}
+
+
+                    <div className="sales-summary">
+
+                        <div className="sales-o">
+                           
+                            <div className="sales1">
+                                <h2>Sales Overview</h2>
+                                <div className='s-c'>
+
+                                    <div className='s1'>
+                                        <Card1 img = {img1} price = '$ 20,000' info='Sales'/>
+
+                                    </div>
+
+                                    <div className='s1'>
+                                        <Card1 img = {img2} price = '$ 15,600' info='Revenue'/>
+
+                                    </div>
+
+                                    <div className='s1'>
+                                        <Card1 img = {img3} price = '$868' info='Profit'/>
+
+                                    </div>
+
+                                    <div className='s1'>
+                                        <Card1 img = {img4} price = '$17,500' info='Cost'/>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div className="inventory">
+                            <div className="sales1">
+                                <h2>Inventory Summary</h2>
+
+                                <div className="i-c">
+                                    <div className="i-c1">
+                                        <Card2 img = {i1} numb = '868' info='Quantity in Hand'/>
+                                    </div>
+                                    <div className="i-c1">
+                                        <Card2 img={i2} numb = '200' info='To be received'/>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                        </div>
+
                     </div>
 
 
+                    <div className="sales-summary">
+
+                        <div className="sales-o">
+                           
+                            <div className="sales1">
+                                <h2>Purchase Overview</h2>
+                                <div className='s-c'>
+
+                                    <div className='s1'>
+                                        <Card1 img = {img5} price = '65' info='Purchases'/>
+
+                                    </div>
+
+                                    <div className='s1'>
+                                        <Card1 img = {img4} price = '$ 13,500' info='Cost'/>
+
+                                    </div>
+
+                                    <div className='s1'>
+                                        <Card1 img = {img6} price = '5' info='Cancel'/>
+
+                                    </div>
+
+                                    <div className='s1'>
+                                        <Card1 img = {img3} price = '10' info='Return'/>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div className="inventory">
+                            <div className="sales1">
+                                <h2>Purchase Summary</h2>
+
+                                <div className="i-c">
+                                    <div className="i-c1">
+                                        <Card2 img = {i3} numb = '31' info='Number of Suppliers'/>
+                                    </div>
+                                    <div className="i-c1">
+                                        <Card2 img = {i4} numb = '21' info='Number of Categories'/>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div className="sales-summary">
+
+                        <div className="sales-o">
+                           
+                            <div className="sales1">
+                                <h2>Top Selling Stock <span>See All</span></h2>
+
+                                <table>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Sold Quantity</th>
+                                        <th>Remaining Quantity</th>
+                                        <th>Price</th>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>Surf excel</td>
+                                        <td>30</td>
+                                        <td>12</td>
+                                        <td>$100</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Rin</td>
+                                        <td>21</td>
+                                        <td>15</td>
+                                        <td>$207</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Parle G</td>
+                                        <td>19</td>
+                                        <td>17</td>
+                                        <td>$105</td>
+                                    </tr>
+
+                                </table>
+                                
+                            </div>
+
+                        </div>
+
+
+
+                        <div className="inventory">
+                            <div className="sales1">
+                                <h2>Low Quantity  Stock <span>See All</span></h2>
+
+                                    <div className="row">
+                                        <div className="row1">
+                                            <img src={q1} alt="" />
+                                            <div className='quan'>
+                                                <h6>Tata salt</h6>
+                                                <p>Remaining Quantity : <span>10 Packet</span></p>
+                                            </div>
+                                            <button>low</button>
+                                        </div>
+
+                                        <div className="row1">
+                                            <img src={q2} alt="" />
+                                            <div className='quan'>
+                                                <h6>Lays</h6>
+                                                <p>Remaining Quantity : <span>10 Packet</span></p>
+                                            </div>
+                                            <button>low</button>
+                                        </div>
+
+                                        <div className="row1">
+                                            <img src={q1} alt="" />
+                                            <div className='quan'>
+                                                <h6>Tata salt</h6>
+                                                <p>Remaining Quantity : <span>10 Packet</span></p>
+                                            </div>
+                                            <button>low</button>
+                                        </div>
+                                    </div>
+                                
+                            </div>
+                            
+
+                        </div>
+
+                    </div>
+
+
+
+                
+
+
+
                 </div>
+
 
             </section>
 

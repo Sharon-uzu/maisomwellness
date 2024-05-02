@@ -15,6 +15,7 @@ import { formatDate } from '@canvasjs/charts'
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight, FaCheck, FaCheckDouble, FaDownload, FaPrint, FaSmile, FaTimes } from 'react-icons/fa'
 import { FaDeleteLeft, FaMoneyBill } from 'react-icons/fa6'
 import { BsCalculator, BsSendCheck } from 'react-icons/bs'
+import AdminSidebar from '../Components/admin-sidebar'
 
 const Invoice = ({
     appState, disp_savedInvoice, disp_invoice_products,
@@ -531,7 +532,7 @@ const Invoice = ({
 
             {console.log(InvoiceProducts)}
             <section className='main-dash'>
-                <Sidebar />
+                <AdminSidebar />
 
                 <div className='main'>
                     {/* <DashHeader /> */}

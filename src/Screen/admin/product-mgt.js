@@ -9,6 +9,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import { CircularProgress, Divider } from '@mui/material'
 import logo from '../../images/logo.jpeg'
 import AdminSidebar from '../../Components/admin-sidebar'
+import { IoFilterSharp } from 'react-icons/io5'
+import Modal from "react-modal";
+
 
 
 const Productmgt = ({
@@ -53,6 +56,86 @@ const Productmgt = ({
 
 
 
+    const Products = [
+        {
+            names:'Maggi',
+            price:'$430',
+            quantity:'43 Packets',
+            thresh:'12 Packets',
+            expDate: '11/12/22',
+            status:'In-stock',
+        },
+
+        {
+            names:'Bru',
+            price:'$530',
+            quantity:'7 Packets',
+            thresh:'3 Packets',
+            expDate: '21/12/22',
+            status:'Out-of-stock',
+        },
+
+        {
+            names:'Red bull',
+            price:'$600',
+            quantity:'13 Packets',
+            thresh:'9 Packets',
+            expDate: '1/12/22',
+            status:'Low stock',
+        },
+
+
+        {
+            names:'Maggi',
+            price:'$430',
+            quantity:'43 Packets',
+            thresh:'12 Packets',
+            expDate: '11/12/22',
+            status:'In-stock',
+        },
+
+        {
+            names:'Bru',
+            price:'$530',
+            quantity:'7 Packets',
+            thresh:'3 Packets',
+            expDate: '21/12/22',
+            status:'Out-of-stock',
+        },
+
+        {
+            names:'Red bull',
+            price:'$600',
+            quantity:'13 Packets',
+            thresh:'9 Packets',
+            expDate: '1/12/22',
+            status:'Low stock',
+        },
+    ]
+
+
+    const getStatusColor = (status) => {
+        switch (status) {
+            case 'In-stock':
+                return '#10A760'; // Green
+            case 'Out-of-stock':
+                return '#FF0000'; // Red
+            case 'Low stock':
+                return '#E19133'; // Orange
+            default:
+                return '#000'; // Default color
+        }
+    };
+
+
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const toggleModal = () => {
+      setIsModalOpen(!isModalOpen);
+    };
+
+
+
     return (
         <div>
 
@@ -80,14 +163,12 @@ const Productmgt = ({
                 <AdminSidebar />
 
                 <div className='main'>
-                    {/* <DashHeader User={User} /> */}
+                    <DashHeader User={User} />
 
-                    <section className='sale-m' style={{
-                        // backgroundColor: "red"
-                    }} >
+                    <section className='products'  >
 
 
-                        {
+                        {/* {
 
                             product ? (
                                 <>
@@ -96,7 +177,6 @@ const Productmgt = ({
 
 
                                             <section style={{ backgroundColor: "#fff", width: "100%", marginTop: -40 }}  >
-                                                {/* paste here */}
 
                                                 {multiple.length > 0 &&
                                                     <div className='invoice-s' id="pdf-content" >
@@ -113,13 +193,11 @@ const Productmgt = ({
                                                                     <th style={{
                                                                         fontSize: 11,
                                                                         fontWeight: 500,
-                                                                        // backgroundColor: "red",
                                                                         width: "110%"
                                                                     }} >PROD.</th>
                                                                     <th style={{
                                                                         fontSize: 11,
                                                                         fontWeight: 500,
-                                                                        // backgroundColor: "red",
                                                                         width: "70%"
                                                                     }} >PRICE</th>
                                                                 </tr>
@@ -146,7 +224,6 @@ const Productmgt = ({
                                                         <Divider style={{ marginTop: -10, marginBottom: 20, marginRight: 10 }} />
 
                                                         <div style={{
-                                                            // backgroundColor: "red",
                                                             display: "flex",
                                                             flex: "row",
                                                             justifyContent: "space-between",
@@ -174,15 +251,11 @@ const Productmgt = ({
 
                                                             <p
                                                                 onClick={() => {
-                                                                    // Initialize sum variable
                                                                     let sum = 0;
 
-                                                                    // Iterate through each object in the array
                                                                     for (let i = 0; i < multiple.length; i++) {
-                                                                        // Add the price of the current object to the sum
                                                                         sum += multiple[i].totalCost;
                                                                     }
-                                                                    // console.log(parseInt(sum*0.7/100))
 
 
                                                                     setloading(true)
@@ -235,15 +308,11 @@ const Productmgt = ({
 
                                                             <p
                                                                 onClick={() => {
-                                                                    // Initialize sum variable
                                                                     let sum = 0;
 
-                                                                    // Iterate through each object in the array
                                                                     for (let i = 0; i < multiple.length; i++) {
-                                                                        // Add the price of the current object to the sum
                                                                         sum += multiple[i].totalCost;
                                                                     }
-                                                                    // console.log(parseInt(sum*0.7/100))
 
 
                                                                     setloading(true)
@@ -363,7 +432,6 @@ const Productmgt = ({
                                                 AllProducts && AllProducts.filter(e => e.category == selectCategory).map((item, index) => {
                                                     return <div
                                                         onClick={() => {
-                                                            // setProductSearch(item.name)
                                                             setselectedProduct(item)
                                                             setmultiple([item])
 
@@ -372,7 +440,6 @@ const Productmgt = ({
                                                             backgroundColor: multiple.filter(e => e.id == item.id).length < 1 ? "#fff" : "rgb(0,0,0,0.1)",
                                                             margin: 9,
                                                             width: 120,
-                                                            // height: 150,
                                                             display: "flex",
                                                             flexDirection: "column",
                                                             alignItems: "center",
@@ -383,7 +450,6 @@ const Productmgt = ({
                                                         <img src={logo} style={{ cursor: 'pointer', width: 90, marginTop: 10, opacity: 0.8 }} alt='logo' />
                                                         <div style={{
                                                             padding: 7,
-                                                            // backgroundColor:"red"
                                                         }} >
                                                             <text style={{
                                                                 fontSize: 9,
@@ -400,11 +466,219 @@ const Productmgt = ({
                                     </div>
                                 </>
                             ) : null
-                        }
+                        } */}
+
+
+
+                        <div className="product-top">
+                            <div className="product-c">
+                                <h2>Overall Inventory</h2>
+                            
+                                <div className="prod1">
+                                    <h3 style={{color:'#1570EF'}}>Categories</h3>
+                                    <h6>14</h6>
+                                    <p>Last 7 days</p>
+                                </div>
+
+                                <div className="prod1 prod2">
+                                    <div className="p2-c">
+
+                                        <h3 style={{color:"#E19133"}}>Total Products</h3>
+                                        <div className='p-f1'>
+                                            <h6>868</h6>
+                                            <h6>$25000</h6>
+                                        </div>
+
+                                        <div className='p-f1'>
+                                            <p>Last 7 days</p>
+                                            <p>Revenue</p>
+                                        </div>
+
+                                    </div>
+                                    
+                                </div>
+
+                                <div className="prod1 prod2">
+
+                                    <div className="p2-c">
+
+                                        <h3 style={{color:'#845EBC'}}>Top Selling</h3>
+                                        <div className='p-f1'>
+                                            <h6>5</h6>
+                                            <h6>$2500</h6>
+                                        </div>
+
+                                        <div className='p-f1'>
+                                            <p>Last 7 days</p>
+                                            <p>Cost</p>
+                                        </div>
+
+                                    </div>
+                                    
+                                </div>
+
+
+                                <div className="prod1 prod2">
+                                    <div className="p2-c">
+
+                                        <h3 style={{color:'#F36960'}}>Low Stocks</h3>
+                                        <div className='p-f1'>
+                                            <h6>2</h6>
+                                            <h6>12</h6>
+                                        </div>
+
+                                        <div className='p-f1'>
+                                            <p>Ordered</p>
+                                            <p>Not in stock</p>
+                                        </div>
+
+                                    </div>
+                                    
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                        <div className="product-table">
+                            <div className="p-t-c">
+
+                                <div className="p-top">
+                                    <h2>Products</h2>
+
+                                    <div className='p-btns'>
+                                        <button style={{cursor:'pointer'}} onClick={toggleModal}>Add Product</button>
+                                        <button className='filter'>
+                                            <IoFilterSharp className='fil'/>
+                                            Filters
+                                        </button>
+                                        <button className='filter'>Download All</button>
+                                    </div>
+                                </div>
+
+
+                                <table>
+                                    <tr>
+                                        <th>Products</th>
+                                        <th>Buying Price</th>
+                                        <th>Quantity</th>
+                                        <th>Threshold Value</th>
+                                        <th>Expiry Date</th>
+                                        <th>Availability</th>
+                                       
+                                    </tr>
+
+
+                                    {
+                                        Products.map((Product, id)=>{
+                                            const statusColor = getStatusColor(Product.status);
+                                            return(
+                                                <tr key={id}>
+                                                    
+                                                    <td>{Product.names}</td>
+                                                    <td>{Product.price}</td>
+                                                    <td>{Product.quantity}</td>
+                                                    <td>{Product.thresh}</td>
+                                                    <td>{Product.expDate}</td>
+                                                    <td style={{ color: statusColor}}>{Product.status}</td>
+                                                    
+                                                </tr>
+                                            )
+                                        })
+                                    }
+                                    
+
+                                    
+                                </table>
+
+                            </div>
+                        </div>
+
+
+
                     </section>
 
+                    
 
                 </div>
+
+
+                <Modal
+                    isOpen={isModalOpen}
+                    onRequestClose={toggleModal}
+                    contentLabel="Example Modal"
+                    className={`bg-transparnt`}
+                    style={{ 
+                    overlay: {
+                        position: "fixed",
+                        top: "0",
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        backgroundColor: "hsla(0, 0%, 0%, .8)",
+                        zIndex:100000,
+                        
+                    },
+                    }}
+                >
+                    <div className='modal1'>
+                    <div className='modal1-content'>
+                        <div className='close'>
+                        <button onClick={() => setIsModalOpen(false)} style={{cursor:'pointer'}}>X</button>
+                        </div>
+
+                        <form className='product-form'>
+
+                            <div>
+                                <p>Product Name</p>
+                                <input type="text" />
+                            </div>
+
+                            <div>
+                                <p>Price</p>
+                                <input type="text" placeholder='$32' />
+                            </div>
+
+                        
+
+                            <div>
+                                <p>Images</p>
+                                <input type="file"
+                                    accept="image/*"
+                                    multiple
+                                />
+                            </div>
+
+        
+
+                            <div>
+                                <p>Catergory</p>
+                                <select name="" id="">
+
+                                    <option value="skin">Sin cares</option>
+                                    <option value="hair">Hair spa</option>
+
+                                </select>
+                            </div>
+
+                            <div className='des'>
+                                <p>Description</p>
+                                <textarea></textarea>
+                            </div>
+
+                            <div className='btn'>
+                                <button type="submit">SEND</button>
+                            </div>
+                        
+                        </form>
+                        
+
+                    </div>
+
+                    </div>
+                    
+                </Modal>
 
             </section>
 

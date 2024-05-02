@@ -46,14 +46,16 @@ const Sidebar = ({
 
 
   return (
-    <div style={{
+    <div className='m-s' style={{
       position: "fixed",
+      zIndex:10000000,
     }} >
 
       
 
       <div className='media-bar' onClick={handleClick}>
         {open1 ? (<IoCloseSharp id='close' style={{ color: '#05004E' }} />) : (<FaBars id='bar' />)}
+        
       </div>
 
 
@@ -136,7 +138,7 @@ const Sidebar = ({
     </NavLink> */}
 
 
-        {/* <NavLink to='/dashboard' className='link' activeclassName = 'active'>
+        <NavLink to='/payroll' className='link' activeclassName = 'active'>
       
         <div>
         
@@ -145,7 +147,7 @@ const Sidebar = ({
 
         </div>
       
-      </NavLink> */}
+      </NavLink>
 
 
         {/* <NavLink to='/dashboard' className='link' activeclassName = 'active'>

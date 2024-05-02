@@ -46,7 +46,8 @@ const AdminSidebar = () => {
     <div style={{
       position: "fixed",
       overflow: "auto",
-      height: "100%"
+      height: "100%",
+      zIndex:100,
       // paddingBottom:90
       // backgroundColor:"red"
     }} >
@@ -54,7 +55,7 @@ const AdminSidebar = () => {
 
 
       <div className='media-bar' onClick={handleClick}>
-        {open1 ? (<IoCloseSharp id='close' style={{ color: '#05004E' }} />) : (<FaBars id='bar' />)}
+        {open1 ? (<IoCloseSharp id='close' style={{ color: '#000' }} />) : (<FaBars id='bar' />)}
       </div>
 
 
@@ -124,7 +125,7 @@ const AdminSidebar = () => {
         </NavLink>
 
 
-        {/* <NavLink to='/dashboard' className='link' activeclassName = 'active'>
+        <NavLink to='/payroll' className='link' activeclassName = 'active'>
       
         <div>
         
@@ -133,7 +134,7 @@ const AdminSidebar = () => {
 
         </div>
       
-      </NavLink> */}
+      </NavLink>
 
 
         {/* <NavLink to='/dashboard' className='link' activeclassName = 'active'>
